@@ -1,37 +1,46 @@
-    /* Vous pouvez changer ici la durée de l'animation (x secondes) */
-    :root {
-      --animation-duration: 1s; /* ← x secondes */
-      --animation-delay: 2s;    /* ← délai avant apparition */
-    }
+/* Vous pouvez changer ici la durée de l'animation (x secondes) */
+:root {
+    --animation-duration: 1s; /* ← x secondes */
+    --animation-delay: 2s;    /* ← délai avant apparition */
+}
+    
+/* Style de base de la notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    transform: translateX(-100%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation-name: slideInFromLeft;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: var(--animation-delay);
+}
 
-    /* Style de base de la notification */
-    .notification {
-      position: fixed;
-      top: 20px;
-      left: 0;
-      /* On place initialement l’élément complètement en dehors de l’écran à gauche */
-      transform: translateX(-100%);
-      background-color: #333;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-      /* Animation : slide-in de gauche → droite */
-      animation-name: slideInFromLeft;
-      animation-duration: var(--animation-duration);
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;   /* conservez la position finale */
-      animation-delay: var(--animation-delay);
-    }
-
-    @keyframes slideInFromLeft {
-      from {
+@keyframes slideInFromLeft {
+    from {
         transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(20px); /* 20px depuis le bord gauche de la fenêtre */
-      }
     }
+    to {
+        transform: translateX(20px); /* 20px depuis le bord gauche de la fenêtre */
+    }
+}
+.choice-notif {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0px;
+    margin-top: 5px;
+    border-width: 0px;
+}
+
+.hidden{
+    display: none;
+}
